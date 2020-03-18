@@ -17,10 +17,7 @@ class Board
     @available_spaces
   end
 
-  def space_selection(num, piece)
-    if num.is_a? Integer && available_spaces[num - 1].class != String
-      available_spaces[num - 1] = piece
-    else
-      
+  def validate_selection?(num)
+    num.is_a?(Integer) && num > 0 && num <= 9 && $spaces[num - 1].class != String
   end
 end
