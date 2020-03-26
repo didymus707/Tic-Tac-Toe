@@ -1,10 +1,14 @@
 require 'colorize'
 
 class Player
-  attr_reader :name, :choices
+  attr_reader :name, :piece, :choices
+  attr_writer :piece
+
+  @@count = 0
 
   def initialize(name)
     @name = name
+    @piece = nil
     @choices = []
   end
 end
@@ -17,6 +21,15 @@ class Board
     @available_spaces = []
     (@board_size ** 2).times { |x| @available_spaces << x + 1 }
     @available_spaces
+  end
+
+  def show_game_board
+    puts "=============================================================================="
+    $available_spaces.each do |x|
+      print "                     #{x}"
+      puts "\n\n" if x % 3 == 0 && x != 9
+    end
+    puts "\n=============================================================================="
   end
 
   def validate_selection?(num)
@@ -42,31 +55,26 @@ class Game
   attr_reader :player1, :player2, :piece
 
   def initialize
-    @player1 = Player.new(gets.chomp)
-    @player2 = Player.new(gets.chomp)
     @game_piece = ["O","X", "M", "P"]
+    @player1 = Player.new(gets.chomp)
+    @player1.piece
+    @player1.piece = select_piece
+    @player2 = Player.new(gets.chomp)
+    @player2.piece = select_piece
   end
 
-  def select_piece(num)
+  def select_piece
     puts "#{@game_piece}"
     puts "\n Select your preferred piece by typing a Number from 1 - 4 from the option above"
     num = gets.chomp.to_i
     @piece = @game_piece[num - 1]
   end
-
-  def winning_combination
-    
-  end
-
-  def check_for_winner
-    
-  end
 end
 
-board = Board.new
-p board.select_space(5, 'M')
-# game = Game.new
-# p game.select_piece(4)
+# board = Board.new
+# p board.select_space(5, 'M')
+game = Game.new
+p game.select_piece
 
 
 

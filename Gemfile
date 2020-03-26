@@ -1,1 +1,2 @@
-gem 'rubocop', '~> 0.79.0'
+source 'https://rubygems.org'
+gem 'rubocop', '~> 0.80.1'

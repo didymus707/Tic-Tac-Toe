@@ -1,0 +1,101 @@
+
+
+--IiVenqGWf+H9Y6IX
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sun, Mar 22, 2020 at 07:45:05PM +0100, Didymus Orotayo wrote:
+> https://github.com/didymus707/Tic-Tac-Toe
+
+Got the link, starred and watching it.
+
+If you don't want reviews on Github for this (as it is being done with
+your other course) I could set at least a mailing list for you,
+that would be private (or at least unlisted), if you want to do that.
+
+When running `bundle install` I am getting the message:
+
+```
+Your Gemfile has no gem server sources. If you need gems that are not
+already on your machine, add a
+line like this to your Gemfile:
+source 'https://rubygems.org'
+Your bundle is locked to rubocop (0.79.0), but that version could not be
+found in any of the sources
+listed in your Gemfile. If you haven't changed sources, that means the
+author of rubocop (0.79.0) has
+removed it. You'll need to update your bundle to a version other than
+rubocop (0.79.0) that hasn't been
+removed in order to install.
+```
+
+I would recommend at least version `0.80`.
+
+Also, research and find out if `Gemfile.lock` should be included in the
+repository and why.  (It does change at times that can be problematic,
+and there are reasons that Gemfile should specify things a bit more
+explicitly)
+
+Also, there really should be a source line for the Gemfile.
+
+It is useful to know that you can do `bundle init` to create a skeleton
+Gemfile that will have the required things.
+
+Here is the RFC patch:
+
+=46rom 86593c6659c2687a5430c6cbe83dee7f72d92382 Mon Sep 17 00:00:00 2001
+=46rom: Victor Goff <keeperotphones@gmail.com>
+Date: Sun, 22 Mar 2020 15:07:04 -0400
+Subject: [RFC 1/1] Gem source location
+
+Signed-off-by: Victor Goff <keeperotphones@gmail.com>
+---
+This will give a location for others to install, and is not so strict on
+the version of Rubocop.  Wait on being strick
+ Gemfile | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/Gemfile b/Gemfile
+index 0f04cf0..04c88f8 100644
+--- a/Gemfile
++++ b/Gemfile
+@@ -1 +1,8 @@
+-gem 'rubocop', '~> 0.79.0'
+\ No newline at end of file
++# frozen_string_literal: true
++
++source "https://rubygems.org"
++
++git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
++
++gem 'rubocop'
++
+--=20
+2.17.1
+
+
+
+
+
+--IiVenqGWf+H9Y6IX
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE6xeI720miMFkwM7C5wyIJrhoCUgFAl53ucAACgkQ5wyIJrho
+CUgNHA/+LCNB2W+7/3EXS3sA0E/NhMKnyuZYYV5HS1pYeTxY5mquOftlUu2jwB74
+a0Cb3ApBq0Nd7a/yk3HP6gdk80f1rlw+8WsuuzqrzQ+ankEXVSCDVq6xcuX4eFMb
+nheZFQv9HYXMP4QpT9iL7ZHmyM9cDoS5YLMR03uXV4nu1nUPdW4xZb+x2UyGib4l
+bBeaE0+ZyILGfRSCeZSSnHD8HBoZxs8iOFR/gtG0QTszOSXATYiInRRFuVg5fKXL
+dPIhFRHXxwnobgd2O8Xzhba/9Z9CjJpy9tMXlaglCT9s+5g4TavV8x81QV3eJ/1N
+O96I33/zrAAptU/QVQ/Hp5pYbVtndSjToV7RAxQogJmMO2SVkbh6nSILI8RjLwPW
+7qUzLORDKVrcjhi1ddwrZFg5v36AlZq8hbRu++zF2rj6zkJYFO7KvQafYIBgfkCv
+i8dzWVWbqBYJ6cj6Z5HpVeaKFWAMxjr5PD/XC0BWne9NBwbOOrnmg3ST3omWEiFW
+BOemy2FlM89nNj91tqZZygDPu3KFAdEMMbe5bNH8uAfYu/7RVjxPRPLgzvpVGvB4
+d/tQRCLEyj3v+5zi7sYYuKS92UFOTqJ1vnTTbc4igqfzDWzhD0fvw7p+p162pmKP
+KdwZLwS3FpP8CIOKXvOsIKMgbzseI2QWs/m0vNZ7vFzjLKK8aRI=
+=PnAc
+-----END PGP SIGNATURE-----
+
+--IiVenqGWf+H9Y6IX--
