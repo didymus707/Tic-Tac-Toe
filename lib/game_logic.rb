@@ -2,6 +2,14 @@ require 'colorize'
 
 class Player
   attr_reader :name, :piece, :choices
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  attr_writer :piece
+>>>>>>> 6c4462e... Changed files and updated codebase
+=======
+  attr_writer :piece
+>>>>>>> 6c4462e... Changed files and updated codebase
 
   @@count = 0
 
@@ -31,12 +39,28 @@ class Board
   end
 
   def show_game_board
+<<<<<<< HEAD
+<<<<<<< HEAD
     puts "=" *25
+=======
+    puts "=============================================================================="
+>>>>>>> 6c4462e... Changed files and updated codebase
+=======
+    puts "=============================================================================="
+>>>>>>> 6c4462e... Changed files and updated codebase
     $available_spaces.each do |x|
       print "                     #{x}"
       puts "\n\n" if x % 3 == 0 && x != 9
     end
+<<<<<<< HEAD
+<<<<<<< HEAD
     puts "\n= *25"
+=======
+    puts "\n=============================================================================="
+>>>>>>> 6c4462e... Changed files and updated codebase
+=======
+    puts "\n=============================================================================="
+>>>>>>> 6c4462e... Changed files and updated codebase
   end
 
   def validate_selection?(num)
@@ -61,12 +85,26 @@ end
 class Game
 
   def initialize
+    @game_piece = ["O","X", "M", "P"]
     @player1 = Player.new(gets.chomp)
     @player1.piece
     @player1.piece = select_piece
     @player2 = Player.new(gets.chomp)
     @player2.piece = select_piece
   end
+<<<<<<< HEAD
+=======
+
+  def select_piece
+    puts "#{@game_piece}"
+    puts "\n Select your preferred piece by typing a Number from 1 - 4 from the option above"
+    num = gets.chomp.to_i
+    @piece = @game_piece[num - 1]
+  end
+<<<<<<< HEAD
+>>>>>>> 6c4462e... Changed files and updated codebase
+=======
+>>>>>>> 6c4462e... Changed files and updated codebase
 end
 
 # board = Board.new
