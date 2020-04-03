@@ -2,7 +2,6 @@ require 'colorize'
 
 class Player
   attr_reader :name, :piece, :choices
-  attr_writer :piece
 
   @@count = 0
 
@@ -10,6 +9,14 @@ class Player
     @name = name
     @piece = nil
     @choices = []
+  end
+
+  def select_piece
+    @game_piece = ["O","X", "M", "P"]
+    puts "#{@game_piece}"
+    puts "\n Select your preferred piece by typing a Number from 1 - 4 from the option above"
+    num = gets.chomp.to_i
+    @piece = @game_piece[num - 1]
   end
 end
 
@@ -24,12 +31,12 @@ class Board
   end
 
   def show_game_board
-    puts "=============================================================================="
+    puts "=" *25
     $available_spaces.each do |x|
       print "                     #{x}"
       puts "\n\n" if x % 3 == 0 && x != 9
     end
-    puts "\n=============================================================================="
+    puts "\n= *25"
   end
 
   def validate_selection?(num)
@@ -52,22 +59,13 @@ class Board
 end
 
 class Game
-  attr_reader :player1, :player2, :piece
 
   def initialize
-    @game_piece = ["O","X", "M", "P"]
     @player1 = Player.new(gets.chomp)
     @player1.piece
     @player1.piece = select_piece
     @player2 = Player.new(gets.chomp)
     @player2.piece = select_piece
-  end
-
-  def select_piece
-    puts "#{@game_piece}"
-    puts "\n Select your preferred piece by typing a Number from 1 - 4 from the option above"
-    num = gets.chomp.to_i
-    @piece = @game_piece[num - 1]
   end
 end
 
