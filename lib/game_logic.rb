@@ -4,12 +4,15 @@ class Player
   attr_reader :name, :piece, :choices
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   attr_writer :piece
 >>>>>>> 6c4462e... Changed files and updated codebase
 =======
   attr_writer :piece
 >>>>>>> 6c4462e... Changed files and updated codebase
+=======
+>>>>>>> 37d286941cbe8439303aa6fa564f89208442e222
 
   @@count = 0
 
@@ -41,6 +44,7 @@ class Board
   def show_game_board
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     puts "=" *25
 =======
     puts "=============================================================================="
@@ -48,10 +52,14 @@ class Board
 =======
     puts "=============================================================================="
 >>>>>>> 6c4462e... Changed files and updated codebase
+=======
+    puts "=" *25
+>>>>>>> 37d286941cbe8439303aa6fa564f89208442e222
     $available_spaces.each do |x|
       print "                     #{x}"
       puts "\n\n" if x % 3 == 0 && x != 9
     end
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     puts "\n= *25"
@@ -61,6 +69,9 @@ class Board
 =======
     puts "\n=============================================================================="
 >>>>>>> 6c4462e... Changed files and updated codebase
+=======
+    puts "\n= *25"
+>>>>>>> 37d286941cbe8439303aa6fa564f89208442e222
   end
 
   def validate_selection?(num)
@@ -85,13 +96,17 @@ end
 class Game
 
   def initialize
+<<<<<<< HEAD
     @game_piece = ["O","X", "M", "P"]
+=======
+>>>>>>> 37d286941cbe8439303aa6fa564f89208442e222
     @player1 = Player.new(gets.chomp)
     @player1.piece
     @player1.piece = select_piece
     @player2 = Player.new(gets.chomp)
     @player2.piece = select_piece
   end
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -105,6 +120,8 @@ class Game
 >>>>>>> 6c4462e... Changed files and updated codebase
 =======
 >>>>>>> 6c4462e... Changed files and updated codebase
+=======
+>>>>>>> 37d286941cbe8439303aa6fa564f89208442e222
 end
 
 # board = Board.new
